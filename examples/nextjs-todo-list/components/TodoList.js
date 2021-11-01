@@ -23,7 +23,10 @@ export default function Todos({ user }) {
         .insert({ task, user_id: user.id })
         .single()
       if (error) setError(error.message)
-      else setTodos([...todos, todo])
+      else {
+        setTodos([...todos, todo])
+        setNewTaskText('')
+      }
     }
   }
 
